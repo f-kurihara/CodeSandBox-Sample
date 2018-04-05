@@ -5,11 +5,11 @@ import {
   COMPLETE_TODO,
   COMPLETE_ALL,
   CLEAR_COMPLETED
-} from "../constants/ActionTypes";
+} from '../constants/ActionTypes';
 
 const initialState = [
   {
-    text: "Use Redux",
+    text: 'Use Redux',
     completed: false,
     id: 0,
   },

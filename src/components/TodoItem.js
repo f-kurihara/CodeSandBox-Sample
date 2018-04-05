@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import classnames from "classnames";
-import TodoTextInput from "./TodoTextInput";
+import React, { Component } from 'react';
+import classnames from 'classnames';
+import TodoTextInput from './TodoTextInput';
 
 export default class TodoItem extends Component {
   state = {
@@ -34,10 +34,10 @@ export default class TodoItem extends Component {
       );
     } else {
       element = (
-        <div className="view">
+        <div className='view'>
           <input
-            className="toggle"
-            type="checkbox"
+            className='toggle'
+            type='checkbox'
             checked={todo.completed}
             onChange={() => completeTodo(todo.id)}
           />
@@ -45,7 +45,7 @@ export default class TodoItem extends Component {
             {todo.text}
           </label>
           <button
-            className="destroy"
+            className='destroy'
             onClick={() => deleteTodo(todo.id)}
           />
         </div>

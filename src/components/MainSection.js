@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { Layout } from "antd";
-import TodoTextInput from "./TodoTextInput";
-import TodoItem from "./TodoItem";
-import AppFooter from "./AppFooter";
+import React, { Component } from 'react';
+import { Layout } from 'antd';
+import TodoTextInput from './TodoTextInput';
+import TodoItem from './TodoItem';
+import AppFooter from './AppFooter';
 import {
   SHOW_ALL,
   SHOW_COMPLETED,
   SHOW_ACTIVE
-} from "../constants/TodoFilters";
+} from '../constants/TodoFilters';
 
 const { Content } = Layout;
 
@@ -44,8 +44,8 @@ export default class MainSection extends Component {
       return (
         <span>
           <input
-            className="toggle-all"
-            type="checkbox"
+            className='toggle-all'
+            type='checkbox'
             checked={completedCount === todos.length}
           />
           <label onClick={actions.completeAll} />
@@ -82,14 +82,14 @@ export default class MainSection extends Component {
     );
 
     return (
-      <Content className="main">
+      <Content className='main'>
         <TodoTextInput
           newTodo
           onSave={this.handleSave}
-          placeholder="What needs to be done?"
+          placeholder='What needs to be done?'
         />
         {this.renderToggleAll(completedCount)}
-        <ul className="todo-list">
+        <ul className='todo-list'>
           {filteredTodos.map(todo => (
             <TodoItem
               key={todo.id}

@@ -1,28 +1,28 @@
-import React, { Component } from "react";
-import { Layout } from "antd";
-import classnames from "classnames";
+import React, { Component } from 'react';
+import { Layout } from 'antd';
+import classnames from 'classnames';
 import {
   SHOW_ALL,
   SHOW_COMPLETED,
   SHOW_ACTIVE
-} from "../constants/TodoFilters";
+} from '../constants/TodoFilters';
 
 const { Footer } = Layout;
 
 const FILTER_TITLES = {
-  [SHOW_ALL]: "All",
-  [SHOW_ACTIVE]: "Active",
-  [SHOW_COMPLETED]: "Completed"
+  [SHOW_ALL]: 'All',
+  [SHOW_ACTIVE]: 'Active',
+  [SHOW_COMPLETED]: 'Completed'
 };
 
 export default class AppFooter extends Component {
   renderTodoCount() {
     const { activeCount } = this.props;
-    const itemWord = activeCount === 1 ? "item" : "items";
+    const itemWord = activeCount === 1 ? 'item' : 'items';
 
     return (
-      <span className="todo-count">
-        <strong>{activeCount || "No"}</strong> {itemWord} left
+      <span className='todo-count'>
+        <strong>{activeCount || 'No'}</strong> {itemWord} left
       </span>
     );
   }
@@ -36,7 +36,7 @@ export default class AppFooter extends Component {
         className={classnames({
           selected: filter === selectedFilter
         })}
-        style={{ cursor: "pointer" }}
+        style={{ cursor: 'pointer' }}
         onClick={() => onShow(filter)}
       >
         {title}
@@ -49,7 +49,7 @@ export default class AppFooter extends Component {
     if (completedCount > 0) {
       return (
         <button
-          className="clear-completed"
+          className='clear-completed'
           onClick={onClearCompleted}
         >
           Clear completed
@@ -60,9 +60,9 @@ export default class AppFooter extends Component {
 
   render() {
     return (
-      <Footer className="footer">
+      <Footer className='footer'>
         {this.renderTodoCount()}
-        <ul className="filters">
+        <ul className='filters'>
           {[SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED].map(filter => (
             <li key={filter}>{this.renderFilterLink(filter)}</li>
           ))}

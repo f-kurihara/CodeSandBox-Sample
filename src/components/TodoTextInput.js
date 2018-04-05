@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { Layout } from "antd";
-import classnames from "classnames";
+import React, { Component } from 'react';
+import { Layout } from 'antd';
+import classnames from 'classnames';
 
 const { Content } = Layout;
 
 export default class TodoTextInput extends Component {
   state = {
-    text: this.props.text || ""
+    text: this.props.text || ''
   };
 
   handleSubmit = e => {
@@ -14,7 +14,7 @@ export default class TodoTextInput extends Component {
     if (e.which === 13) {
       this.props.onSave(text);
       if (this.props.newTodo) {
-        this.setState({ text: "" });
+        this.setState({ text: '' });
       }
     }
   };
@@ -35,11 +35,11 @@ export default class TodoTextInput extends Component {
         <input
           className={classnames({
             edit: this.props.editing,
-            "new-todo": this.props.newTodo
+            'new-todo': this.props.newTodo
           })}
-          type="text"
+          type='text'
           placeholder={this.props.placeholder}
-          autoFocus="true"
+          autoFocus='true'
           value={this.state.text}
           onBlur={this.handleBlur}
           onChange={this.handleChange}
