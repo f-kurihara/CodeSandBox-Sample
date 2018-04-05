@@ -20,6 +20,10 @@ const TODO_FILTERS = {
 export default class MainSection extends Component {
   state = { filter: SHOW_ALL };
 
+  handleClearCompleted = () => {
+    this.props.actions.clearCompleted()
+  }
+
   handleSave = text => {
     if (text.length !== 0) {
       this.props.addTodo(text);
@@ -74,8 +78,7 @@ export default class MainSection extends Component {
 
     const filteredTodos = todos.filter(TODO_FILTERS[filter]);
     const completedCount = todos.reduce(
-      (count, todo) => (todo.completed ? count + 1 : count),
-      0
+      (count, todo) => (todo.completed ? count + 1 : count), 0
     );
 
     return (
@@ -85,10 +88,14 @@ export default class MainSection extends Component {
           onSave={this.handleSave}
           placeholder="What needs to be done?"
         />
-        {/* {this.renderToggleAll(completedCount)} */}
+        {this.renderToggleAll(completedCount)}
         <ul className="todo-list">
           {filteredTodos.map(todo => (
-            <TodoItem key={todo.id} todo={todo} {...actions} />
+            <TodoItem
+              key={todo.id}
+              todo={todo}
+              {...actions}
+            />
           ))}
         </ul>
         {this.renderFooter(completedCount)}

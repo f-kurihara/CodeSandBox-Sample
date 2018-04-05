@@ -10,7 +10,11 @@ import "antd/dist/antd.css";
 const App = ({ todos, actions }) => (
   <Layout className="layout">
     <AppHeader />
-    <MainSection addTodo={actions.addTodo} todos={todos} actions={actions} />
+    <MainSection
+      addTodo={actions.addTodo}
+      todos={todos}
+      actions={actions}
+    />
   </Layout>
 );
 
@@ -22,4 +26,7 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(TodoActions, dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(App);

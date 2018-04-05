@@ -33,7 +33,9 @@ export default class AppFooter extends Component {
 
     return (
       <a
-        className={classnames({ selected: filter === selectedFilter })}
+        className={classnames({
+          selected: filter === selectedFilter
+        })}
         style={{ cursor: "pointer" }}
         onClick={() => onShow(filter)}
       >
@@ -46,7 +48,10 @@ export default class AppFooter extends Component {
     const { completedCount, onClearCompleted } = this.props;
     if (completedCount > 0) {
       return (
-        <button className="clear-completed" onClick={onClearCompleted}>
+        <button
+          className="clear-completed"
+          onClick={onClearCompleted}
+        >
           Clear completed
         </button>
       );
